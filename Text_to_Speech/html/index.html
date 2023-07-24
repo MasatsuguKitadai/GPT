@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>音声合成アプリ</title>
+</head>
+
+<body>
+    <input id="txt" type="text" value="生麦生米生卵">
+    <input id="btn" type="button" value="話す">
+    <script>
+        const btn = document.getElementById("btn");     // ボタンの取得
+        btn.addEventListener("click", () => {           // ボタンがクリックされたら
+            const synth = new SpeechSynthesisUtterance(); // 設定を入れるオブジェクト
+            const txt = document.getElementById("txt");   // テキストボックスを取得
+            synth.text = txt.value; // 話す内容
+            synth.lang = "ja-JP";   // 言語
+            synth.rate = 1.0;       // 速さ
+            synth.pitch = 1.0;       // 高さ
+            synth.volume = 1.0;       // 音量
+            window.speechSynthesis.speak(synth);          // 話す
+        });
+    </script>
+</body>
+
+</html>
